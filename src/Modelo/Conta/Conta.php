@@ -1,11 +1,12 @@
 <?php
+
+namespace Alura\Banco\Modelo\Conta;
 class  Conta
 {
     // Objeto do tipo Conta
     // Os dados dentro do objeto do tipo conta são chamados de atributos
     private $titular;
     private float $saldoConta = 0; // Passando por padrão que toda conta seja iniciada com saldo 0
-
     private static $nrContaAbertas = 0;
 
     public function __construct(Titular $titular)
