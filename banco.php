@@ -1,10 +1,11 @@
 <?php
 
-require_once 'src/Modelo/Conta/Conta.php';
-require_once 'src/Modelo/Endereco.php';
-require_once 'src/Modelo/Pessoa.php';
-require_once 'src/Modelo/Conta/Titular.php';
-require_once 'src/Modelo/CPF.php';
+require_once 'autoload.php';
+
+use Alura\Banco\Modelo\Conta\Conta;
+use Alura\Banco\Modelo\Conta\Titular;
+use Alura\Banco\Modelo\CPF;
+use Alura\Banco\Modelo\Endereco;
 
 $endereIgorLane = new Endereco('Brasilia','Del Lago','DF - 250','1,1,2');
 $igor = new Conta(new Titular(new CPF('237.551.326-64'),'Igor Gomes Araujo', $endereIgorLane));
