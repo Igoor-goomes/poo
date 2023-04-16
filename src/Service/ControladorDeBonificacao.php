@@ -2,11 +2,11 @@
 
 namespace Alura\Banco\Service;
 
-use Alura\Banco\Modelo\Funcionario;
+use Alura\Banco\Modelo\Funcionario\Funcionario;
 
 class ControladorDeBonificacao
 {
-    private $totalBonificacoes;
+    private $totalBonificacoes = 0;
     public function adicionaBonificacao(Funcionario $funcionario)
     {
         $this->totalBonificacoes += $funcionario->calculaBonificacao();

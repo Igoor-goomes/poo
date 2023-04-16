@@ -5,21 +5,15 @@ namespace Alura\Banco\Modelo\Funcionario;
 use Alura\Banco\Modelo\CPF;
 use Alura\Banco\Modelo\Pessoa;
 
-class Funcionario extends Pessoa
+abstract class Funcionario extends Pessoa
 {
-    private string $cargo;
     private float $salario;
 
-    public function __construct(string $nome, CPF $cpf, string $cargo, float $salario)
+    public function __construct(string $nome, CPF $cpf, float $salario)
     {
         parent::__construct($nome,$cpf);
-        $this->cargo = $cargo;
+//        $this->cargo = $cargo;
         $this->salario = $salario;
-    }
-
-    public function recuperaCargo(): string
-    {
-        return $this->cargo;
     }
     public function alteraNome(string $nome): void
     {
@@ -27,15 +21,20 @@ class Funcionario extends Pessoa
         $this->nome = $nome;
     }
 
+    public function aumentoSalario(float $valorAumento): void
+    {
+        if ($valorAumento < 0) {
+            echo "Para solicitação de aumento de salário, deve ser informado um valor maior que 0.";
+            return;
+        }
+        $this->salario += $valorAumento;
+    }
+
     public function recuperaSalario(): float
     {
         return $this->salario;
     }
 
-    public function calculaBonificacao(): float
-    {
-        return $this->salario * 0.1;
-    }
-
+    abstract public function calculaBonificacao(): float;
 
 }
