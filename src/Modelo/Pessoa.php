@@ -3,6 +3,7 @@
 namespace Alura\Banco\Modelo;
 class Pessoa
 {
+    use AcessoPropriedades;
     protected string $nome;
     private CPF $cpf;
 
@@ -23,7 +24,7 @@ class Pessoa
         return $this->cpf->recuperaNr_cpf();
     }
 
-    protected function validaNome(string $nomeTitular)
+    final protected function validaNome(string $nomeTitular)
     {
         if (strlen($nomeTitular) < 11) {
             echo "Para criação da conta, precisa informa um nome válido, com no minimo 11 caracteres.";
